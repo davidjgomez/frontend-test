@@ -1,0 +1,25 @@
+.highlightedEventCard {
+  background-image: linear-gradient(to top left, white, #05F);
+  border-bottom: 2px solid #555;
+  overflow: hidden;
+  font-size: 60%;
+  padding: 0;
+}
+
+.highlightedEventCard .eventImage img {
+  max-height: 8em;
+  width: 100%;
+}
+
+.highlightedEventCard .eventTitle {
+  font-weight: bold;
+}
+
+.highlightedEventCard .eventDescription {
+  font-style: italic;
+}
+
+.highlightedEventCard .eventDate,
+.highlightedEventCard .footer {
+  text-align: right;
+}

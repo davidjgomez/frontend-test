@@ -1,0 +1,20 @@
+.eventCard {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.eventCard .p-card-header,
+.eventCard .p-card-body {
+	background-color: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+}
+
+.eventCard .p-card-footer span {
+  display: flex;
+  justify-content: space-around;
+}
+
+.eventCard .p-card-content {
+  text-align: right;
+}

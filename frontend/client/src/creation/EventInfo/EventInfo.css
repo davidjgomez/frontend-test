@@ -1,0 +1,6 @@
+.eventInfoCard .p-card-content div,
+.eventInfoCard textarea,
+.eventInfoCard input {
+  margin-top: 10px;
+  width: 100%;
+}

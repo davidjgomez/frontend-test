@@ -1,0 +1,5 @@
+.eventPictureCard .p-card-content div,
+.eventPictureCard input {
+  margin-top: 10px;
+  width: 100%;
+}
