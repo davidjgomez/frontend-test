@@ -63,4 +63,6 @@ For the backend part, the following libraries were used:
 * `Dotenv`: To load the `.env` configuration variables
 * `Nodemon`: To run the server and monitor any changes to automatically reset it
 
-Finally, in the root of the project, was used `Concurrently` to start both servers at once
+Finally, in the root of the project, was used `Concurrently` to start both servers at once.
+
+In addition, a Cloudinary account was created to manage images of the events. 

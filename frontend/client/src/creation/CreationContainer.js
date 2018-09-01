@@ -26,13 +26,13 @@ export default class CreationContainer extends Component {
   updateEventState(e) {
     const field = e.target.id;
     const event = this.state.event;
-    event[field] = e.target.value;
-    this.setState({ isCreating: false });
+    event[field] = e.target.value ? e.target.value : e.target.src;
+    this.setState({ isCreating: false })
   }
 
   updateEventDates(date) {
     this.state.event.dates.push(date)
-    this.setState({ isCreating: false });
+    this.setState({ isCreating: false })
   }
 
   createEvent(e) {

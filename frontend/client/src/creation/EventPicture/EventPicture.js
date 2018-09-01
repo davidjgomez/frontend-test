@@ -10,22 +10,27 @@ export default class EventPicture extends Component {
     super(props)
     this.state = { image: null }
 
-    this.onSelect = this.onSelect.bind(this)
-    this.onBeforeUpload = this.onSelect.bind(this)
+    this.selectImage = this.selectImage.bind(this)
+    this.configureData = this.configureData.bind(this)
   }
 
-  onSelect(e) {
+  selectImage(e) {
     this.setState({ image: e.files ? e.files[0] : null })
   }
 
-  onBeforeUpload(e) {
+  configureData(e) {
     e.formData.append('upload_preset', 'eventsPreset')
     e.formData.append('tags', 'browser_upload')
     e.formData.append('file', this.state.image)
-    console.log(e.formData)
   }
 
-  onError(e) {
+  loadImage(e) {
+    const image = document.getElementById('eventImage')
+    const imageURL = JSON.parse(e.xhr.response).secure_url
+    image.setAttribute('src', imageURL)
+  }
+
+  manageError(e) {
     console.log(e.xhr.responseText)
   }
 
@@ -33,12 +38,12 @@ export default class EventPicture extends Component {
     return (
       <Card className="eventPictureCard">
         <div>
-          <img id="eventImage" />
+          <img id="eventImage" alt="" onLoad={this.props.onChange} />
           <FileUpload name="eventImageUpload" 
-            url="https://api.cloudinary.com/v1_1/davidjgomez/upload" 
-            chooseLabel="Select Image" accept="image/*"
-            onSelect={this.onSelect} onBeforeUpload={this.onBeforeUpload} 
-            onError={this.onError} />
+            url={process.env.REACT_APP_CLOUDINARY_SERVICE}
+            chooseLabel="Select Image" accept="image/*" mode="basic"
+            onSelect={this.selectImage} onBeforeUpload={this.configureData} 
+            onUpload={this.loadImage} onError={this.manageError} />
         </div>
         <div>
           <InputText id="location" placeholder="Location"
