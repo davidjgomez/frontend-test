@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import HighlightedEventListView from './HighlightedEventListView'
-import EventAPI from '../../api/EventAPI'
+import eventAPI from '../../api/EventAPI'
 import { sortEventsByMaxDate } from '../Utils.js'
  
 // List of highlighted events container 
@@ -11,7 +11,7 @@ export default class HighlightedEventListContainer extends Component {
   }
 
   componentDidMount() {
-    new EventAPI().findHighlightedEvents()
+    eventAPI.findHighlightedEvents()
       .catch(error => this.setState({ isLoading: false, error })) 
       .then(({ events }) => {
         const sortedEvents = sortEventsByMaxDate(events)

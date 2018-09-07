@@ -14,21 +14,15 @@ function _fetchData(route = '', method = 'GET', event) {
     .then(res => res.json())
 }
 
-// Class to use the backend API to work with events
-export default class EventAPI {  
-  findAllEvents() {
-    return _fetchData('events')
-  }
+// Object to use the backend API to work with events
+const eventAPI = {  
+  findAllEvents: () => _fetchData('events'),
 
-  findHighlightedEvents() {
-    return _fetchData('events/featured')
-  }
+  findHighlightedEvents: () => _fetchData('events/featured'),
 
-  findEventById(id) {
-    return _fetchData('events/' + id)
-  }
+  findEventById: (id) => _fetchData('events/' + id),
 
-  createEvent(event) {
-    return _fetchData('events', 'POST', event)
-  }
+  createEvent: (event) =>  _fetchData('events', 'POST', event)
 }
+
+export default eventAPI

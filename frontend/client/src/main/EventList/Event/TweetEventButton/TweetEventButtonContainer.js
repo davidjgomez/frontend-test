@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TwitterAPI from '../../../../api/TwitterAPI'
+import twitterAPI from '../../../../api/TwitterAPI'
 import TweetEventButtonView from './TweetEventButtonView'
 
 // Container of a twitter button to post events
@@ -14,7 +14,7 @@ export default class TweetEventButtonContainer extends Component {
   tweetEvent(showSuccess, showError) {
   	const tweet = `I'm going to ${this.props.event.title} @ ${this.props.event.dates[0]}`
   	
-    new TwitterAPI().tweetEvent(tweet)
+    twitterAPI.tweetEvent(tweet)
       .catch(error => {
         this.setState({ error })
         showError() 

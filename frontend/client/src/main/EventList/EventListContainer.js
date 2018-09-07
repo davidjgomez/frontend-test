@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import EventListView from './EventListView'
-import EventAPI from '../../api/EventAPI'
+import eventAPI from '../../api/EventAPI'
 import { sortEventsByMaxDate } from '../Utils.js'
  
 // Main list of events container 
@@ -11,7 +11,7 @@ export default class EventListContainer extends Component {
   }
 
   componentDidMount() {
-    new EventAPI().findAllEvents()
+    eventAPI.findAllEvents()
       .catch(error => this.setState({ isLoading: false, error })) 
       .then(({ events }) => {
         const sortedEvents = sortEventsByMaxDate(events)

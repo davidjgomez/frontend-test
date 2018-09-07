@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DetailView from './DetailView'
-import EventAPI from '../api/EventAPI'
+import eventAPI from '../api/EventAPI'
  
 // Detailed view of a event container
 export default class DetailContainer extends Component {
@@ -10,7 +10,7 @@ export default class DetailContainer extends Component {
   }
 
   componentDidMount() {
-    new EventAPI().findEventById(this.props.match.params.id)
+    eventAPI.findEventById(this.props.match.params.id)
       .catch(error => this.setState({ isLoading: false, error })) 
       .then(({ event }) => this.setState({ isLoading: false, event, error: null }))
   }

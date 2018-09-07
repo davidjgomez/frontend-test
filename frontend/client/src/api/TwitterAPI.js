@@ -14,9 +14,9 @@ function _fetchData(route = '', method = 'GET', tweet) {
       .then(res => res.json())
 }
 
-// Class to use the twitter API to work with events
-export default class TwitterAPI {  
-  tweetEvent(tweet) {
-    return _fetchData('/twitter/postTweet', 'POST', tweet)
-  }
+// Object to use the twitter API to work with events
+const twitterAPI = {  
+  tweetEvent: (tweet) => _fetchData('/twitter/postTweet', 'POST', tweet)
 }
+
+export default twitterAPI

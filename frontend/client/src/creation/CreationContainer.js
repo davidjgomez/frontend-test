@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CreationView from './CreationView'
-import EventAPI from '../api/EventAPI'
+import eventAPI from '../api/EventAPI'
  
 // Creation of an event container
 export default class CreationContainer extends Component {
@@ -38,7 +38,7 @@ export default class CreationContainer extends Component {
   createEvent(e) {
     e.preventDefault()
    
-    new EventAPI().createEvent(this.state.event)
+    eventAPI.createEvent(this.state.event)
       .catch(error => this.setState({ isCreating: false, error })) 
       .then(({ event }) => { 
         this.setState({ isCreating: true, event, error: null })
